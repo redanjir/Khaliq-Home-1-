@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "821315933794",
+    "project_id": "khaliq-home",
+    "storage_bucket": "khaliq-home.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821315933794:android:6eff0ce4889b57818f233b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_apptest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBuNTUoXSbEEDzoL_wi9PcIcLD3oX5mYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821315933794:android:28750bd28deba4668f233b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebaseproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBuNTUoXSbEEDzoL_wi9PcIcLD3oX5mYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
