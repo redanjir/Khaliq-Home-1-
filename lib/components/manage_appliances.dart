@@ -33,7 +33,6 @@ class _ManageAppliancesState extends State<ManageAppliances> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(widget.title, style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),),
-                  Text('test'),
                 ],
               ),
             ),
