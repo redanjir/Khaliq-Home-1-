@@ -31,7 +31,7 @@ class _ManageAppliancesNextPageState extends State<ManageAppliancesNextPage> {
       _powerSliderTitle = 'TV Power';
     } else if (widget.imagepath == "assets/images/air-conditioner.png") {
       _speedSliderTitle = 'AC Speed';
-      _powerSliderTitle = 'AC Power';
+      _powerSliderTitle = 'AC Temperature';
     }
 
     return Scaffold(

@@ -7,6 +7,7 @@ import 'package:flutter_apptest/auth/login_or_register.dart';
 import 'package:flutter_apptest/firebase_options.dart';
 import 'package:flutter_apptest/pages/about_page.dart';
 import 'package:flutter_apptest/pages/add_appliances_page.dart';
+import 'package:flutter_apptest/pages/energy_page.dart';
 import 'package:flutter_apptest/pages/home_page.dart';
 import 'package:flutter_apptest/pages/manage_appliances_page.dart';
 import 'package:flutter_apptest/pages/profile_page.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/about_page':(context) => const AboutPage(),
         '/add_appliances_page':(context) => AddAppliancesPage(),
         '/manage_appliances_page':(context) => ManageAppliancesPage(),
+        '/energy_page':(context) => const EnergyPage(),
       },
     );
   }

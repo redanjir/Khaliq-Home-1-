@@ -48,7 +48,7 @@ List myAppliances = [
   // [title, icon, route]
   ["Add Appliances", Icons.add, '/add_appliances_page'],
   ["Manage Appliances", Icons.settings, '/manage_appliances_page'],
-  ["Energy Consumption", Icons.flash_on, '/profile_page'],
+  ["Energy Consumption", Icons.flash_on, '/energy_page'],
   ["Set energy goal", Icons.timeline, '/profile_page'],
 ];
 
@@ -71,7 +71,7 @@ List myAppliances = [
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Welcome Home', style: TextStyle(fontSize: 20, color: Colors.grey[700])),
+                Text('Welcome Home', style: TextStyle(fontSize: 30, color: Colors.grey[700])),
                 //if username is null, display an empty string
                 Text(username ?? '', style: const TextStyle(fontSize: 50, color: Colors.black),)
               ],
@@ -95,6 +95,7 @@ List myAppliances = [
                 padding: EdgeInsets.all(26), // padding around the grid
                 itemCount: myAppliances.length,
                 itemBuilder: (context, index){
+                  // fuck I confused myself with all the appliances and devices names... well it works anyway
                   return MyAppliances(
                     myAppliances[index][0],
                     myAppliances[index][1],
