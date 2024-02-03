@@ -20,7 +20,7 @@ class _FansPageState extends State<FansPage> {
     return Scaffold(
        appBar: AppBar(
         centerTitle: true,
-        title: const Text('FANS', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text('ADD FANS', style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: SingleChildScrollView(
