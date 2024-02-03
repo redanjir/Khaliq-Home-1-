@@ -49,7 +49,7 @@ List myAppliances = [
   ["Add Appliances", Icons.add, '/add_appliances_page'],
   ["Manage Appliances", Icons.settings, '/manage_appliances_page'],
   ["Energy Consumption", Icons.flash_on, '/energy_page'],
-  ["Set energy goal", Icons.timeline, '/profile_page'],
+  ["Set energy goal", Icons.timeline, '/energygoals_page'],
 ];
 
 
