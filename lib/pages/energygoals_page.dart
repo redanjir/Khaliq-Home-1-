@@ -8,7 +8,7 @@ class EnergyGoalsPage extends StatefulWidget {
 }
 
 class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
-
+  double _currentSliderValue = 200;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,20 +20,8 @@ class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         children: [
-          //container
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Container(
-                color: Colors.red,
-                child: const Padding(
-                  padding: EdgeInsets.fromLTRB(80, 8, 80, 8),
-                  child: Text('Energy Goals', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-                ),
-              ),
-            ),
-          ),
-
+        
+          const SizedBox(height: 30,),
           // column with row
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +34,7 @@ class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
                 width: 350, height: 80,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: Colors.orange,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 child: Row(
                   children: [
@@ -54,13 +42,13 @@ class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
                       height: 80, width: 300,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.red
+                        color: Colors.grey.shade600
                       ),
                       child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('1000kWh in total', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                          Text('currently: 800kWh', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold ),)
+                          Text('1000kWh in total', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
+                          Text('currently: 800kWh', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white ),)
                         ],
                       ),
                     )
@@ -70,17 +58,61 @@ class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
             ],
           ),
 
-          const SizedBox(height: 20,),
+          const SizedBox(height: 50,),
 
-          //Row with dropdown
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //column
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Set an Energy Goal' , style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-             
+              const Padding(
+                padding: EdgeInsets.only(left: 25),
+                child: Text('Set an Energy Goal for 2024' , style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              ),
+              Slider(
+                activeColor: Colors.grey.shade600,
+                inactiveColor: Theme.of(context).colorScheme.primary,
+                value: _currentSliderValue,
+                max: 1000,
+                divisions: 5,
+                label: _currentSliderValue.round().toString(),
+                onChanged: (double value) {
+                  setState(() {
+                    _currentSliderValue = value;
+                  });
+                },
+              ),
             ],
           ),
 
+          const SizedBox(height: 10,),
+
+           GestureDetector(
+             child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(80, 8, 80, 8),
+                    child: Text('Save', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            onTap:(){
+              Navigator.pop(context);
+            },
+           ),
+
+          const Padding(
+            padding: EdgeInsets.all(50.0),
+            child: Text('Tip: Turn off your Air-conditioners when not in use or on cold or rainy days. This helps to save energy',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          )
         ],
       ),
     );

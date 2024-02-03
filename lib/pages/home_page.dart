@@ -46,8 +46,12 @@ class _HomePageState extends State<HomePage> {
   // List of smart appliances
 List myAppliances = [
   // [title, icon, route]
-  ["Add Appliances", Icons.add, '/add_appliances_page'],
-  ["Manage Appliances", Icons.settings, '/manage_appliances_page'],
+  
+  //Was add appliances before but changed to manage appliances
+  ["Manage Appliances", Icons.add, '/add_appliances_page'],
+
+  //formerly was manage appliances
+  ["Appliances", Icons.settings, '/manage_appliances_page'],
   ["Energy Consumption", Icons.flash_on, '/energy_page'],
   ["Set energy goal", Icons.timeline, '/energygoals_page'],
 ];
@@ -65,15 +69,22 @@ List myAppliances = [
       drawer: const MyDrawer(),
       body: Column(
         children: [
-          // Greeting
+        
+          SizedBox(height: 50,),
           Padding(
-            padding: const EdgeInsets.only(right: 78, top: 30, left: 50),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            padding: const EdgeInsets.only(left: 30),
+            child: Row(
+              children: const [
+                Text('Welcome Home', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+              ],
+            ),
+          ),
+
+           Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: Row(
               children: [
-                Text('Welcome Home', style: TextStyle(fontSize: 30, color: Colors.grey[700])),
-                //if username is null, display an empty string
-                Text(username ?? '', style: const TextStyle(fontSize: 50, color: Colors.black),)
+                Text(username ?? '', style: const TextStyle(fontSize: 30, color: Colors.black87)),
               ],
             ),
           ),
@@ -81,7 +92,7 @@ List myAppliances = [
           // Just a divider
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Divider(color: Colors.grey[400], thickness: 1, ),
+            child: Divider(color: Theme.of(context).colorScheme.secondary, thickness: 2, ),
           ),
 
             Expanded(
@@ -95,7 +106,7 @@ List myAppliances = [
                 padding: EdgeInsets.all(26), // padding around the grid
                 itemCount: myAppliances.length,
                 itemBuilder: (context, index){
-                  // fuck I confused myself with all the appliances and devices names... well it works anyway
+                  //I confused myself with all the appliances and devices names... well it works anyway
                   return MyAppliances(
                     myAppliances[index][0],
                     myAppliances[index][1],

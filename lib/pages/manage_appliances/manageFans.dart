@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_apptest/models/fans.dart';
 import 'package:flutter_apptest/pages/appliances_settings/fan_settings_page.dart';
@@ -43,10 +42,12 @@ class ManageFansPage extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
+                          SizedBox(height: 10,),
                           SizedBox(
                             height: 120, // height of the size box, the icon is in it
                             child: Image.asset(fanlist[index].imagePath),
                           ),
+                          SizedBox(height: 5,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

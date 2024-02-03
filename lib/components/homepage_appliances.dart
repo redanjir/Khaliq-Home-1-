@@ -29,14 +29,15 @@ class _MyAppliancesState extends State<MyAppliances> {
                 height: 120, // height of the size box, the icon is in it
                 child: Icon(
                   widget.icon,
-                  size:90, // Adjust the size of the icon as needed
+                  size:90, 
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
               // SizedBox(height: 30,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(widget.title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                  Text(widget.title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black87),),
                 ],
               ),
             ],

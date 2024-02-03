@@ -50,12 +50,12 @@ class _FansPageState extends State<FansPage> {
                 decoration: InputDecoration(
                   filled: true, hintText: 'Add a new Fan Name',
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: const BorderSide(width: 3, color: Colors.blueAccent)
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(width: 3, color: Colors.black)
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: const BorderSide(width: 3, color: Colors.orangeAccent)
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(width: 3, color: Colors.grey)
                   )
                 ),
                 controller: _fanNameController,
@@ -85,7 +85,7 @@ class _FansPageState extends State<FansPage> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(isNameEmpty ? 'Fan name cannot be empty.' : 'Fan name already exists.'),
-                        duration: Duration(seconds: 2),
+                        duration: const Duration(seconds: 2),
                         action: SnackBarAction(
                           label: 'OK',
                           onPressed: () {
@@ -100,7 +100,7 @@ class _FansPageState extends State<FansPage> {
 
 
                  style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white, backgroundColor: Colors.blue, elevation: 5,
+                  foregroundColor: Colors.black87, backgroundColor: Colors.grey.shade400, elevation: 5,
                   shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),

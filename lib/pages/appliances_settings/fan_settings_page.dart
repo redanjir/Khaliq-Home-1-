@@ -27,51 +27,84 @@ class _FanSettingsPageState extends State<FanSettingsPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Fan Settings: ${widget.fan.fanName} ' , style: const TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(
+          'Fan Settings: ${widget.fan.fanName}',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Theme.of(context).colorScheme.primary,
-
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Current Speed: ${widget.fan.fanSpeed ?? 'N/A'}'),
-            TextField(
+            _buildSettingRow(
+              label: 'Current Speed:',
+              value: widget.fan.fanSpeed?.toString() ?? 'N/A',
+            ),
+            _buildTextField(
               controller: _speedController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'New Speed'),
+              labelText: 'New Speed',
             ),
             const SizedBox(height: 20),
-            Text('Current Brightness: ${widget.fan.fanBrightness ?? 'N/A'}'),
-            TextField(
+            _buildSettingRow(
+              label: 'Current Brightness:',
+              value: widget.fan.fanBrightness?.toString() ?? 'N/A',
+            ),
+            _buildTextField(
               controller: _brightnessController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'New Brightness'),
+              labelText: 'New Brightness',
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Update the fan speed and brightness
-                double? newSpeed = double.tryParse(_speedController.text);
-                double? newBrightness = double.tryParse(_brightnessController.text);
-
-                setState(() {
-                  widget.fan.fanSpeed = newSpeed;
-                  widget.fan.fanBrightness = newBrightness;
-                });
-
-                // Display a snackbar to indicate that settings have been updated
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Fan settings updated'),
-                  ),
-                );
+                _updateSettings();
               },
               child: const Text('Save Settings'),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildSettingRow({required String label, required String value}) {
+    return Row(
+      children: [
+        Text(label),
+        SizedBox(width: 10),
+        Text(value),
+      ],
+    );
+  }
+
+  Widget _buildTextField(
+      {required TextEditingController controller, required String labelText}) {
+    return TextField(
+      controller: controller,
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+    );
+  }
+
+  void _updateSettings() {
+    // Update the fan speed and brightness
+    double? newSpeed = double.tryParse(_speedController.text);
+    double? newBrightness = double.tryParse(_brightnessController.text);
+
+    setState(() {
+      widget.fan.fanSpeed = newSpeed;
+      widget.fan.fanBrightness = newBrightness;
+    });
+
+    // Display a snackbar to indicate that settings have been updated
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Fan settings updated'),
       ),
     );
   }
