@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_apptest/components/texfield.dart';
 import 'package:flutter_apptest/models/fans.dart';
 import 'package:flutter_apptest/pages/manage_appliances/manageFans.dart';
 
@@ -44,23 +45,11 @@ class _FansPageState extends State<FansPage> {
             ),
             const SizedBox(height: 20,),
         
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                decoration: InputDecoration(
-                  filled: true, hintText: 'Add a new Fan Name',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(width: 3, color: Colors.black)
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(width: 3, color: Colors.grey)
-                  )
-                ),
-                controller: _fanNameController,
+            MyTextField(
+              hintext: 'Fan Name', 
+              obscuretext: false, 
+              controller: _fanNameController
               ),
-            ),
             const SizedBox(height: 20,),
         
             SizedBox(

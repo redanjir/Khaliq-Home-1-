@@ -101,10 +101,24 @@ class _MyProfileState extends State<MyProfile> {
               const SizedBox(height: 25),
           
               // Update button
-              ElevatedButton(
-                onPressed: updateUserCredentials,
-                child: const Text('Update', style: TextStyle(fontWeight: FontWeight.bold),),
+            ElevatedButton(
+              onPressed: updateUserCredentials,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
+              child: const Padding(
+                padding: EdgeInsets.fromLTRB(80, 8, 80, 8),
+                child: Text(
+                  'Save',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold , color: Colors.black87 ),
+                ),
+              ),
+            ),
+
+              
             ],
           ),
         ),

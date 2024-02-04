@@ -18,7 +18,7 @@ class ManageFansPage extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 30,),
-          const Text('Your Fans: ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+          const Text('Your Fans: ', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
           const SizedBox(height: 10,),
           Expanded(
             child: GridView.builder(

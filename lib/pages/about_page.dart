@@ -1,7 +1,10 @@
+// ignore_for_file: avoid_print, deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -71,31 +74,89 @@ class AboutPage extends StatelessWidget {
             const Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
+                  Padding(
                   padding: EdgeInsets.only(left: 30),
                   child: Text('Contact Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                 ),
+                
               ],
             ),
         
             const SizedBox(height: 10,),
         
-             const Row(
+              Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 30),
                   child: Text('Email: AbdulKhaliq4606@gmail.com', style: TextStyle(fontSize: 15,),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      final Uri emailLaunchUri = Uri(
+                        scheme: 'mailto',
+                        path: "AbdulKhaliq4606@gmail.com",
+                        queryParameters: {
+                          'subject': 'Your Subject Here',
+                          'body': 'Your Email Body Here',
+                        },
+                      );
+                  
+                      if(await canLaunch(emailLaunchUri.toString())){
+                        await launch(emailLaunchUri.toString());
+                      }else{
+                        print('Cannot launch email');
+                      }
+                      
+                    }, 
+                      style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Text('Email', style: TextStyle(fontSize: 15, color: Colors.black87 )),
+                  ),
                 ),
               ],
             ),
         
-            const Row(
+              Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 30),
                       child: Text('Contact No: +65 8788-4613', style: TextStyle(fontSize: 15,),),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: ElevatedButton(
+                      onPressed: () async {
+                      final Uri phoneLaunchUri = Uri(
+                        scheme: 'tel',
+                        path: "+6587884613",
+                      );
+                      
+                      if(await canLaunch(phoneLaunchUri.toString())){
+                        await launch(phoneLaunchUri.toString());
+                      }else{
+                        print('Cannot launch phone');
+                      }
+                      
+                        }, 
+                      style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                      child: const Text(
+                        'Call',
+                        style: TextStyle(fontSize: 15, color: Colors.black87 ),
+                      ),
+                      ),
                     ),
                   ],
                 ),
