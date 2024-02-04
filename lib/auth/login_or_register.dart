@@ -1,8 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_apptest/pages/login_page.dart';
-import 'package:flutter_apptest/pages/register_page.dart';
+import 'package:flutter_apptest/pages/login&register/login_page.dart';
+import 'package:flutter_apptest/pages/login&register/register_page.dart';
 
 class LoginOrRegister extends StatefulWidget {
   @override

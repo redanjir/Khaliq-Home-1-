@@ -13,6 +13,9 @@ import 'package:flutter_apptest/pages/appliances/TVs_page.dart';
 class AddAppliancesPage extends StatelessWidget {
    AddAppliancesPage();
    List<Fans> fanlist = [];
+   List<Lights> lightlist = [];
+   List<TVs> tvlist = [];
+   List<AirConditioners> aclist = [];
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +58,7 @@ class AddAppliancesPage extends StatelessWidget {
                 trailing: IconButton(icon: const Icon(Icons.add, size: 30,), 
                   onPressed: (){
                     Lights lights1 = Lights("Lights", "assets/images/light-bulb.png");
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => LightPage(lights1)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => LightPage(lights1, lightlist)));
                     },),
               ),
             ),
@@ -73,7 +76,7 @@ class AddAppliancesPage extends StatelessWidget {
                 trailing: IconButton(icon: const Icon(Icons.add, size: 30,), 
                   onPressed: (){
                     TVs tV1 = TVs("TVs", "assets/images/smart-tv.png");
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => TvPage(tV1)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TvPage(tV1, tvlist)));
                     },),
               ),
             ),
@@ -91,7 +94,7 @@ class AddAppliancesPage extends StatelessWidget {
                 trailing: IconButton(icon: const Icon(Icons.add, size: 30,), 
                   onPressed: (){
                     AirConditioners ac1 = AirConditioners("Air Conditioners", "assets/images/air-conditioner.png");
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => AirConPage(ac1)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => AirConPage(ac1, aclist)));
                     },),
               ),
             ),
