@@ -63,7 +63,7 @@ List myAppliances = [
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Home', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text('Home', style: TextStyle(fontWeight: FontWeight.bold,)),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       drawer: const MyDrawer(),
@@ -84,7 +84,7 @@ List myAppliances = [
             padding: const EdgeInsets.only(left: 30),
             child: Row(
               children: [
-                Text(username ?? '', style: const TextStyle(fontSize: 30, color: Colors.black87)),
+                Text(username ?? '', style:  TextStyle(fontSize: 30, color: Theme.of(context).colorScheme.secondary)),
               ],
             ),
           ),

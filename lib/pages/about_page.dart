@@ -117,7 +117,7 @@ class AboutPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: const Text('Email', style: TextStyle(fontSize: 15, color: Colors.black87 )),
+                    child: Text('Email', style: TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.secondary)),
                   ),
                 ),
               ],
@@ -152,9 +152,9 @@ class AboutPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                      child: const Text(
+                      child: Text(
                         'Call',
-                        style: TextStyle(fontSize: 15, color: Colors.black87 ),
+                        style: TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.secondary ),
                       ),
                       ),
                     ),

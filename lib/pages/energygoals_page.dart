@@ -34,7 +34,7 @@ class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
                 width: 350, height: 80,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Colors.grey.shade600,
                 ),
                 child: Row(
                   children: [
@@ -42,7 +42,7 @@ class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
                       height: 80, width: 300,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey.shade600
+                        color: Colors.green
                       ),
                       child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -69,8 +69,8 @@ class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
                 child: Text('Set an Energy Goal for 2024' , style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
               ),
               Slider(
-                activeColor: Colors.grey.shade600,
-                inactiveColor: Theme.of(context).colorScheme.primary,
+                activeColor: Theme.of(context).colorScheme.secondary  ,
+                inactiveColor: Colors.grey.shade500,
                 value: _currentSliderValue,
                 max: 1000,
                 divisions: 5,
@@ -95,9 +95,9 @@ class _EnergyGoalsPageState extends State<EnergyGoalsPage> {
                     color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Padding(
+                  child: Padding(
                     padding: EdgeInsets.fromLTRB(80, 8, 80, 8),
-                    child: Text('Save', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                    child: Text('Save', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.secondary),),
                   ),
                 ),
               ),

@@ -37,7 +37,7 @@ class _MyAppliancesState extends State<MyAppliances> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(widget.title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black87),),
+                  Text(widget.title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.secondary,)),
                 ],
               ),
             ],

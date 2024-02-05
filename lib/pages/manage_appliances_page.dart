@@ -69,11 +69,11 @@ class _ManageAppliancesPageState extends State<ManageAppliancesPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(image, fit: BoxFit.scaleDown, height: 180, width: 300,),
+            Image.asset(image, fit: BoxFit.scaleDown, height: 180, width: 300, color: Theme.of(context).colorScheme.secondary,),
             const SizedBox(height: 30), // Add some space between the image and text
             Text(
               _getApplianceName(index), // Retrieve appliance name based on index
-              style: const TextStyle(fontSize: 30,  fontWeight: FontWeight.bold, color: Colors.black87), 
+              style: TextStyle(fontSize: 30,  fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.secondary), 
             ),
           ],
         ),
@@ -107,8 +107,8 @@ String _getApplianceName(int index) {
     effect: const SlideEffect(
       dotWidth: 20,
       dotHeight: 20,
-      activeDotColor: Colors.black,
-      dotColor: Colors.black12
+      // activeDotColor: Colors.black,
+      // dotColor: Colors.black12
     ),
   );
 }

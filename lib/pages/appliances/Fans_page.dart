@@ -39,6 +39,7 @@ class _FansPageState extends State<FansPage> {
                 ),
                 child: Image.asset(
                   widget.fan1.imagePath,
+                  color: Theme.of(context).colorScheme.secondary,
                   height: 200,
                 ),
               ),

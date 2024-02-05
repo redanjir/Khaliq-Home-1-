@@ -36,6 +36,7 @@ class _LightPageState extends State<LightPage> {
                 ),
                 child: Image.asset(
                   widget.light1.imagePath,
+                  color: Theme.of(context).colorScheme.secondary,
                   height: 200,
                 ),
               ),

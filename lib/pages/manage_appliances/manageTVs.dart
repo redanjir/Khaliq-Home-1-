@@ -45,7 +45,7 @@ class ManageTVsPage extends StatelessWidget {
                           SizedBox(height: 10,),
                           SizedBox(
                             height: 120, // height of the size box, the icon is in it
-                            child: Image.asset(tvlist[index].imagePath),
+                            child: Image.asset(tvlist[index].imagePath ,color: Theme.of(context).colorScheme.secondary),
                           ),
                           SizedBox(height: 5,),
                           Row(

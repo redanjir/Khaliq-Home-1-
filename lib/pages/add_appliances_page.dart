@@ -33,8 +33,9 @@ class AddAppliancesPage extends StatelessWidget {
             child: Card(
               elevation: 10,
               child: ListTile(
-                tileColor: Theme.of(context).primaryColor,
-                leading: const Image(image: AssetImage("assets/images/fan.png"), height: 70, width: 70,),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                tileColor: Theme.of(context).colorScheme.primary,
+                leading: Image(image: const AssetImage("assets/images/fan.png"), height: 70, width: 70, color: Theme.of(context).colorScheme.secondary,),
                 title: const Text("Fans", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),),
                 subtitle: const Text("Connect a new Fan to Khaliq Home", style: TextStyle(fontSize: 20),),
                 trailing: IconButton(icon: const Icon(Icons.add, size: 30,), 
@@ -51,8 +52,9 @@ class AddAppliancesPage extends StatelessWidget {
             child: Card(
               elevation: 10,
               child: ListTile(
-                tileColor: Theme.of(context).primaryColor,
-                leading: const Image(image: AssetImage("assets/images/light-bulb.png"), height: 70, width: 70,),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                tileColor: Theme.of(context).colorScheme.primary,
+                leading: Image(image: const AssetImage("assets/images/light-bulb.png"), height: 70, width: 70, color: Theme.of(context).colorScheme.secondary,),
                 title: const Text("Lights", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),),
                 subtitle: const Text("Connect a new Light to Khaliq Home", style: TextStyle(fontSize: 20),),
                 trailing: IconButton(icon: const Icon(Icons.add, size: 30,), 
@@ -69,8 +71,9 @@ class AddAppliancesPage extends StatelessWidget {
             child: Card(
               elevation: 10,
               child: ListTile(
-                tileColor: Theme.of(context).primaryColor,
-                leading: const Image(image: AssetImage("assets/images/smart-tv.png"), height: 70, width: 70,),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                tileColor: Theme.of(context).colorScheme.primary,
+                leading: Image(image: const AssetImage("assets/images/smart-tv.png"), height: 70, width: 70, color: Theme.of(context).colorScheme.secondary,),
                 title: const Text("TVs", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),),
                 subtitle: const Text("Connect a new TV to Khaliq Home", style: TextStyle(fontSize: 20),),
                 trailing: IconButton(icon: const Icon(Icons.add, size: 30,), 
@@ -87,8 +90,9 @@ class AddAppliancesPage extends StatelessWidget {
             child: Card(
               elevation: 10,
               child: ListTile(
-                tileColor: Theme.of(context).primaryColor,
-                leading: const Image(image: AssetImage("assets/images/air-conditioner.png"), height: 70, width: 70,),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                tileColor: Theme.of(context).colorScheme.primary,
+                leading:  Image(image: const AssetImage("assets/images/air-conditioner.png"), height: 70, width: 70, color: Theme.of(context).colorScheme.secondary,),
                 title: const Text("Air Condtioners", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),),
                 subtitle: const Text("Connect a new Air-Conditioner to Khaliq Home", style: TextStyle(fontSize: 20),),
                 trailing: IconButton(icon: const Icon(Icons.add, size: 30,), 

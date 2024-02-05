@@ -57,10 +57,17 @@ class _FanSettingsPageState extends State<FanSettingsPage> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
+              
               onPressed: () {
                 _updateSettings();
               },
-              child: const Text('Save Settings'),
+               style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+              child: Text('Save Settings', style:  TextStyle(color: Theme.of(context).colorScheme.secondary),),
             ),
           ],
         ),

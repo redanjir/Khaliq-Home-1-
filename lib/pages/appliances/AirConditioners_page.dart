@@ -37,6 +37,7 @@ class _AirConPageState extends State<AirConPage> {
                 ),
                 child: Image.asset(
                   widget.ac1.imagePath,
+                  color: Theme.of(context).colorScheme.secondary,
                   height: 200,
                 ),
               ),

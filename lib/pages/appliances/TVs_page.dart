@@ -38,6 +38,7 @@ class _TvPageState extends State<TvPage> {
                 ),
                 child: Image.asset(
                   widget.tv1.imagePath,
+                  color: Theme.of(context).colorScheme.secondary,
                   height: 200,
                 ),
               ),
