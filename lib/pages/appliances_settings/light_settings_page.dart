@@ -36,18 +36,30 @@ class _LightSettingsPageState extends State<LightSettingsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildSettingRow(
-              label: 'Current Brightness:',
-              value: widget.light.brightness?.toString() ?? 'N/A',
+            // Display current brightness
+            Row(
+              children: [
+                Text('Current Brightness:'),
+                SizedBox(width: 10),
+                Text(widget.light.brightness?.toString() ?? 'N/A'),
+              ],
             ),
-            _buildTextField(
+            // Text field for entering new brightness
+            TextField(
               controller: _brightnessController,
-              labelText: 'New Brightness',
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                labelText: 'New Brightness',
+              ),
             ),
             const SizedBox(height: 20),
+            // Button to save settings
             ElevatedButton(
               onPressed: () {
-                _updateSettings();
+                _updateSettings(); // Call function to update light settings
               },
               child: const Text('Save Settings'),
             ),
@@ -57,39 +69,17 @@ class _LightSettingsPageState extends State<LightSettingsPage> {
     );
   }
 
-  Widget _buildSettingRow({required String label, required String value}) {
-    return Row(
-      children: [
-        Text(label),
-        SizedBox(width: 10),
-        Text(value),
-      ],
-    );
-  }
-
-  Widget _buildTextField(
-      {required TextEditingController controller, required String labelText}) {
-    return TextField(
-      controller: controller,
-      keyboardType: TextInputType.number,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        labelText: labelText,
-      ),
-    );
-  }
-
+  // Function to update light settings
   void _updateSettings() {
-    // Update the light brightness
+    // Parse new brightness from text field
     double? newBrightness = double.tryParse(_brightnessController.text);
 
+    // Update light brightness
     setState(() {
       widget.light.brightness = newBrightness;
     });
 
-    // Display a snackbar to indicate that settings have been updated
+    // Show snackbar to indicate that settings have been updated
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Light settings updated'),

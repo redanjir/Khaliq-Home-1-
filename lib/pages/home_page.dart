@@ -26,6 +26,8 @@ class _HomePageState extends State<HomePage> {
     //fetch user details wehn the widget is initialized
     getUserDetails();
   }
+
+  // This functioon fetches the user's details from the collection in the firebase collection
     Future<void> getUserDetails() async {
     DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore.instance
         .collection("Users")
@@ -106,7 +108,7 @@ List myAppliances = [
                 padding: EdgeInsets.all(26), // padding around the grid
                 itemCount: myAppliances.length,
                 itemBuilder: (context, index){
-                  //I confused myself with all the appliances and devices names... well it works anyway
+                  // This is a widget ye
                   return MyAppliances(
                     myAppliances[index][0],
                     myAppliances[index][1],

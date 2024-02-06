@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  void login() async{
+  void login() async {
     // Show loading circle
     showDialog(
       context: context,
@@ -27,21 +27,31 @@ class _LoginPageState extends State<LoginPage> {
         child: CircularProgressIndicator(),
       ),
     );
-  
-    //try sign in
-    try{
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailController.text, password: _passwordController.text);
 
-      //pop loading circle
-      if(context.mounted) Navigator.pop(context);
-    } on FirebaseException catch(e){
-      //pop loading circle
+    // Validate form fields
+    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+      // Pop loading circle
+      Navigator.pop(context);
+
+      // Show error message to user
+      displayMessagetoUser("Email and password are required!", context);
+      return; // Exit function early if any field is empty
+    }
+
+    try {
+      // Try signing in
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+
+      // Pop loading circle
+      if (context.mounted) Navigator.pop(context);
+    } on FirebaseException catch (e) {
+      // Pop loading circle
       Navigator.pop(context);
       displayMessagetoUser(e.code, context);
     }
-    
-    
-  
   }
 
   @override
@@ -63,8 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 SizedBox(height: 20,),
-                
-                Text('KHALIQ HOME',style: TextStyle(fontSize: 20),),
+
+                Text('KHALIQ HOME', style: TextStyle(fontSize: 20),),
 
                 SizedBox(height: 20,),
 
@@ -98,13 +108,13 @@ class _LoginPageState extends State<LoginPage> {
 
                 //Login button
                 MyButton(
-                  text: 'Login?',
+                  text: 'Login',
                   onTap: login,
                 ),
 
                 SizedBox(height: 30,),
 
-                //Reigster here
+                //Register here
                 GestureDetector(
                   onTap: widget.onTap,
                   child: Row(

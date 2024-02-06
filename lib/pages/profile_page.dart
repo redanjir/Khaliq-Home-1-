@@ -27,6 +27,8 @@ class _MyProfileState extends State<MyProfile> {
     getUserDetails();
   }
 
+
+  // This functioon fetches the user's details from the collection in the firebase collection
   Future<void> getUserDetails() async {
     DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore.instance
         .collection("Users")
@@ -45,6 +47,7 @@ class _MyProfileState extends State<MyProfile> {
   }
 
 
+// This function updates the user's details by checking the current user's email and username and updating the new details
   Future<void> updateUserCredentials() async {
     await FirebaseFirestore.instance
         .collection("Users")

@@ -38,36 +38,53 @@ class _FanSettingsPageState extends State<FanSettingsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildSettingRow(
-              label: 'Current Speed:',
-              value: widget.fan.fanSpeed?.toString() ?? 'N/A',
+            // Display current speed
+            Text(
+              'Current Speed: ${widget.fan.fanSpeed?.toString() ?? 'N/A'}',
             ),
-            _buildTextField(
+            // Text field for entering new speed
+            TextField(
               controller: _speedController,
-              labelText: 'New Speed',
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'New Speed',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
             ),
             const SizedBox(height: 20),
-            _buildSettingRow(
-              label: 'Current Brightness:',
-              value: widget.fan.fanBrightness?.toString() ?? 'N/A',
+            // Display current brightness
+            Text(
+              'Current Brightness: ${widget.fan.fanBrightness?.toString() ?? 'N/A'}',
             ),
-            _buildTextField(
+            // Text field for entering new brightness
+            TextField(
               controller: _brightnessController,
-              labelText: 'New Brightness',
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'New Brightness',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
             ),
             const SizedBox(height: 20),
+            // Button to save settings
             ElevatedButton(
-              
               onPressed: () {
-                _updateSettings();
+                _updateSettings(); // Call function to update fan settings
               },
-               style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-              child: Text('Save Settings', style:  TextStyle(color: Theme.of(context).colorScheme.secondary),),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: Text(
+                'Save Settings',
+                style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+              ),
             ),
           ],
         ),
@@ -75,40 +92,19 @@ class _FanSettingsPageState extends State<FanSettingsPage> {
     );
   }
 
-  Widget _buildSettingRow({required String label, required String value}) {
-    return Row(
-      children: [
-        Text(label),
-        SizedBox(width: 10),
-        Text(value),
-      ],
-    );
-  }
-
-  Widget _buildTextField(
-      {required TextEditingController controller, required String labelText}) {
-    return TextField(
-      controller: controller,
-      keyboardType: TextInputType.number,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-  }
-
+  // Function to update fan settings
   void _updateSettings() {
-    // Update the fan speed and brightness
+    // Take new speed and brightness from text fields
     double? newSpeed = double.tryParse(_speedController.text);
     double? newBrightness = double.tryParse(_brightnessController.text);
 
+    // Update fan speed and brightness
     setState(() {
       widget.fan.fanSpeed = newSpeed;
       widget.fan.fanBrightness = newBrightness;
     });
 
-    // Display a snackbar to indicate that settings have been updated
+    // Show snackbar to indicate that settings have been updated
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Fan settings updated'),

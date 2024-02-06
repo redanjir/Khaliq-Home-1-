@@ -36,18 +36,30 @@ class _AirConSettingsPageState extends State<AirConSettingsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildSettingRow(
-              label: 'Current Temperature:',
-              value: widget.airCon.temperature?.toString() ?? 'N/A',
+            // Display current temperature
+            Row(
+              children: [
+                Text('Current Temperature:'),
+                SizedBox(width: 10),
+                Text(widget.airCon.temperature?.toString() ?? 'N/A'),
+              ],
             ),
-            _buildTextField(
+            // Text field for entering new temperature
+            TextField(
               controller: _temperatureController,
-              labelText: 'New Temperature',
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                labelText: 'New Temperature',
+              ),
             ),
             const SizedBox(height: 20),
+            // Button to save settings
             ElevatedButton(
               onPressed: () {
-                _updateSettings();
+                _updateSettings(); // Call function to update air conditioner settings
               },
               child: const Text('Save Settings'),
             ),
@@ -57,39 +69,17 @@ class _AirConSettingsPageState extends State<AirConSettingsPage> {
     );
   }
 
-  Widget _buildSettingRow({required String label, required String value}) {
-    return Row(
-      children: [
-        Text(label),
-        SizedBox(width: 10),
-        Text(value),
-      ],
-    );
-  }
-
-  Widget _buildTextField(
-      {required TextEditingController controller, required String labelText}) {
-    return TextField(
-      controller: controller,
-      keyboardType: TextInputType.number,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        labelText: labelText,
-      ),
-    );
-  }
-
+  // Function to update air conditioner settings
   void _updateSettings() {
-    // Update the air conditioner temperature
+    // Parse new temperature from text field
     double? newTemperature = double.tryParse(_temperatureController.text);
 
+    // Update air conditioner temperature
     setState(() {
       widget.airCon.temperature = newTemperature;
     });
 
-    // Display a snackbar to indicate that settings have been updated
+    // Show snackbar to indicate that settings have been updated
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Air Conditioner settings updated'),
