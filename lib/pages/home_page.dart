@@ -108,7 +108,7 @@ List myAppliances = [
                 padding: EdgeInsets.all(26), // padding around the grid
                 itemCount: myAppliances.length,
                 itemBuilder: (context, index){
-                  // This is a widget ye
+                  // I call a widget called MyAppliances and pass the data from the list
                   return MyAppliances(
                     myAppliances[index][0],
                     myAppliances[index][1],
