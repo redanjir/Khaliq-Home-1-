@@ -42,12 +42,12 @@ class ManageFansPage extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          SizedBox(height: 10,),
+                          const SizedBox(height: 10,),
                           SizedBox(
                             height: 120, // height of the size box, the icon is in it
                             child: Image.asset(fanlist[index].imagePath, color: Theme.of(context).colorScheme.secondary,),
                           ),
-                          SizedBox(height: 5,),
+                          const SizedBox(height: 5,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
