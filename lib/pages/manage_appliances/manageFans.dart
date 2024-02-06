@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_apptest/models/fans.dart';
 import 'package:flutter_apptest/pages/appliances_settings/fan_settings_page.dart';
